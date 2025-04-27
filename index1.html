@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pr-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaison Montador</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="imagenJ">
+        <img src="imagemcirculo.png" alt="">
+        <p style="font-style: italic;">Jaison Montador</p>
+    </div>
+    <h1>Digite seus Dados:</h1>
+
+    <div class="areaTotal">
+            <div class="VoltaSalvar">
+                <div><button onclick="window.location.href = 'index.html'">VOLTAR</button></div>
+                <div><button onclick="dados_salvos()">SALVOS</button> <br></div>
+            </div>
+                <div style="margin-top: 20px;">
+                    <label for="nome_produto">Nome do Produto</label> <br>
+                    <input placeholder="nome_produto" type="text" name="nome_produto" id="nome_produto"><br>
+                </div>
+    
+                <div style="margin-top: 20px;">
+                    <label for="codigo">Código</label> <br>
+                    <input type="number" name="codigo" id="codigo"> <br>
+                </div>
+    
+                <div style="margin-top: 20px;">
+                    <label for="data">Data</label> <br>
+                    <input type="date" name="data" id="data"> <br>
+                </div>
+    
+                <div style="margin-top: 20px;">
+                    <label for="local">Local</label> <br>
+                    <input type="text" name="local" id="local"> <br><br><br>
+                </div>
+
+            <div class="salvaBOT">
+                <button onclick="salvarDados()">SALVAR</button>
+            </div>
+    </div>
+    
+
+    <script>
+        function salvarDados(){
+            let NomeProduto = document.getElementById('nome_produto').value;
+            let codigo = document.getElementById('codigo').value;
+            let data = document.getElementById('data').value;
+            let localizacao = document.getElementById('local').value;
+
+            let valorSalvo_np = localStorage.getItem('salvo_np') || "";
+            let valorSalvo_c = localStorage.getItem('salvo_c') || "";
+            let valorSalvo_d = localStorage.getItem('salvo_d') || "";
+            valoSalvo_l = localStorage.getItem('salvo_l') || ""
+
+            // valorSalvo_np = `<li>${NomeProduto}</li>`
+            // valorSalvo_c =  `<li>${codigo}</li>`
+            // valorSalvo_d =  `<li>${data}</li>`
+            // valoSalvo_l = `<li>${localizacao}</li>`
+            valorSalvo_np = NomeProduto
+            valorSalvo_c =  codigo
+            valorSalvo_d =  data
+            valoSalvo_l =  localizacao
+
+            localStorage.setItem('salvo_np', valorSalvo_np);
+            localStorage.setItem('salvo_c', valorSalvo_c);
+            localStorage.setItem('salvo_d', valorSalvo_d);
+            localStorage.setItem('salvo_l', valoSalvo_l);
+
+            // let numeroSalvo = parseInt(localStorage.getItem('salvo_c')); transforma em numero de nove
+            // console.log(numeroSalvo)
+
+            window.location.href = "dadosSalvos.html"
+        }
+
+        function dados_salvos() {
+            window.location.href='dadosSalvos.html'
+        }
+    </script>
+</body>
+</html>

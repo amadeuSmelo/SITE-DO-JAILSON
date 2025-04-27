@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus Dados Salvos</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body style="background-color: aliceblue;">
+    <h1>Seus Dados Salvos</h1>
+
+    <div class="bt_voltarDadosalvos_excluir">
+        <!-- <p><a href="../index1.html">VOLTAR</a></p>
+        <a href="../index.html">Página Inicial</a> -->
+        <button onclick="window.location.href = '../index1.html'">Voltar</button><button>Excluir</button>
+
+    </div>
+
+    <ul id="lista"></ul>
+
+    <script>
+        let buscarvalor_np = localStorage.getItem('salvo_np') || "";
+        let bosca_valor_c = localStorage.getItem('salvo_c') || "";
+        let buscar_valor_d = localStorage.getItem('salvo_d') || "";
+        let buscarvalor_l = localStorage.getItem('salvo_l') || "";
+
+        let valor_lista = document.getElementById('lista')
+        valor_lista.innerHTML = `<strong>NOME DO PRODUTO</strong><li>${buscarvalor_np}</li> <strong>CÓDIGO</strong><li>${bosca_valor_c}</li> <strong>DATA</strong><li>${buscar_valor_d}</li> <strong>LOCAL</strong><li>${buscarvalor_l}</li>`
+        
+    </script>
+</body>
+</html>

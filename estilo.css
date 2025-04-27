@@ -1,0 +1,98 @@
+/*PAGINA INICIAL*/
+.salvar_Salvos{
+    display: flex;
+    /* text-align: center; */
+    justify-content: space-evenly;
+}
+
+.imgPagina1{
+    margin-top: 100px;
+    text-align: center;
+}
+
+/*PAGINA INICIAL*/
+
+/*PAGINA1*/
+body{
+    /* width: 100%; 
+    margin: 0 auto;*/
+    /* max-width: 400px; LIMITE MAXIMO*/
+    /* overflow: hidden; ARRASTA E MUDAR DE PAGINA */
+    background-color: rgb(167, 228, 249);
+}
+
+.imagenJ{
+    text-align: center
+}
+
+
+h1{
+    text-align: center;
+    color: rgb(43, 20, 244);
+    font-family:  Verdana, Geneva, Tahoma, sans-serif
+}
+
+.areaTotal{
+    text-align: center;
+
+    
+}
+.VoltaSalvar{
+    display: flex;
+    justify-content: space-evenly;
+}
+/*PAGINA1*/
+
+/*PAGINA SEUS DADOS*/
+
+body{
+    width: 100%;
+}
+
+.bt_voltarDadosalvos_excluir{
+    display: flex;
+    margin-top: -10px;
+    /* text-align: center; */
+    justify-content: space-evenly;
+}
+
+
+/* PAGINA SEUS DADOS */
+ul{
+    list-style: none;
+    padding: 0;
+    background-color: rgba(254, 246, 1, 0.305);
+    width: 350px;
+    height: 250px;
+}
+li{
+    background-color:  rgb(43, 20, 244);
+    padding: 10px ;
+    /* margin: 10px auto; */
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    width: 300px;
+    /* font-weight: bold; */
+
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    
+}
+span{
+    cursor: pointer;
+}
+
+
+/* input {
+outline: none
+cursor:ponter;
+transtion: 0.5s;
+
+}
+
+button:hover{
+    backgroud-color
+}
+*/
+

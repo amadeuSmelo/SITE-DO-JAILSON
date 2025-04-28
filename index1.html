@@ -19,22 +19,22 @@
                 <div><button onclick="dados_salvos()">SALVOS</button> <br></div>
             </div>
                 <div style="margin-top: 20px;">
-                    <label for="nome_produto">Nome do Produto</label> <br>
-                    <input placeholder="nome_produto" type="text" name="nome_produto" id="nome_produto"><br>
+                    <label for="nome_produto" style="font-size: 20px;">Nome do Produto</label> <br>
+                    <input type="text" name="nome_produto" id="nome_produto"><br>
                 </div>
     
                 <div style="margin-top: 20px;">
-                    <label for="codigo">Código</label> <br>
+                    <label for="codigo" style="font-size: 20px;">Código</label> <br>
                     <input type="number" name="codigo" id="codigo"> <br>
                 </div>
     
-                <div style="margin-top: 20px;">
-                    <label for="data">Data</label> <br>
+                <div style="margin-top: 20px;" >
+                    <label for="data" style="font-size: 20px;">Data</label> <br>
                     <input type="date" name="data" id="data"> <br>
                 </div>
     
                 <div style="margin-top: 20px;">
-                    <label for="local">Local</label> <br>
+                    <label for="local" style="font-size: 20px;">Local</label> <br>
                     <input type="text" name="local" id="local"> <br><br><br>
                 </div>
 
@@ -46,33 +46,24 @@
 
     <script>
         function salvarDados(){
+
             let NomeProduto = document.getElementById('nome_produto').value;
             let codigo = document.getElementById('codigo').value;
             let data = document.getElementById('data').value;
             let localizacao = document.getElementById('local').value;
 
-            let valorSalvo_np = localStorage.getItem('salvo_np') || "";
-            let valorSalvo_c = localStorage.getItem('salvo_c') || "";
-            let valorSalvo_d = localStorage.getItem('salvo_d') || "";
-            valoSalvo_l = localStorage.getItem('salvo_l') || ""
+            let arrayLista = JSON.parse(localStorage.getItem('chaveSalvar')) || [];
 
-            // valorSalvo_np = `<li>${NomeProduto}</li>`
-            // valorSalvo_c =  `<li>${codigo}</li>`
-            // valorSalvo_d =  `<li>${data}</li>`
-            // valoSalvo_l = `<li>${localizacao}</li>`
-            valorSalvo_np = NomeProduto
-            valorSalvo_c =  codigo
-            valorSalvo_d =  data
-            valoSalvo_l =  localizacao
+            let valoresFormaliro = {
+                NomeProduto: NomeProduto,
+                codigo: codigo,
+                data: data,
+                localizacao: localizacao
+            }
 
-            localStorage.setItem('salvo_np', valorSalvo_np);
-            localStorage.setItem('salvo_c', valorSalvo_c);
-            localStorage.setItem('salvo_d', valorSalvo_d);
-            localStorage.setItem('salvo_l', valoSalvo_l);
+            arrayLista.push(valoresFormaliro)
 
-            // let numeroSalvo = parseInt(localStorage.getItem('salvo_c')); transforma em numero de nove
-            // console.log(numeroSalvo)
-
+            localStorage.setItem('chaveSalvar', JSON.stringify(arrayLista));
             window.location.href = "dadosSalvos.html"
         }
 

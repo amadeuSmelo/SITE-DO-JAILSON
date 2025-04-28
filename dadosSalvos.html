@@ -12,23 +12,41 @@
     <h1>Seus Dados Salvos</h1>
 
     <div class="bt_voltarDadosalvos_excluir">
-        <!-- <p><a href="../index1.html">VOLTAR</a></p>
-        <a href="../index.html">Página Inicial</a> -->
-        <button onclick="window.location.href = 'index1.html'">Voltar</button><button>Excluir</button>
-
+        <button onclick="window.location.href = 'index1.html'" >Voltar</button>
     </div>
 
-    <ul id="lista"></ul>
+    <ul id="lista_ul"></ul>
 
     <script>
-        let buscarvalor_np = localStorage.getItem('salvo_np') || "";
-        let bosca_valor_c = localStorage.getItem('salvo_c') || "";
-        let buscar_valor_d = localStorage.getItem('salvo_d') || "";
-        let buscarvalor_l = localStorage.getItem('salvo_l') || "";
+        let arrayLista = JSON.parse(localStorage.getItem('chaveSalvar')) || [];
 
-        let valor_lista = document.getElementById('lista')
-        valor_lista.innerHTML = `<strong>NOME DO PRODUTO</strong><li>${buscarvalor_np}</li> <strong>CÓDIGO</strong><li>${bosca_valor_c}</li> <strong>DATA</strong><li>${buscar_valor_d}</li> <strong>LOCAL</strong><li>${buscarvalor_l}</li>`
-        
+        let lista_ul = document.getElementById('lista_ul');
+
+        lista_ul.innerHTML = ""
+
+        arrayLista.forEach((item) => {
+            lista_ul.innerHTML += `
+            <li><strong>NOME DO PRODUTO:</strong> ${item.NomeProduto}</li>
+            <li><strong>CÓDIGO:</strong> ${item.codigo}</li>
+            <li><strong>DATA:</strong> ${item.data}</li>
+            <li><strong>LOCAL:</strong> ${item.localizacao} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<span onclick="deleta(this)">❌</span> </li> <br>
+            ` 
+        });
+
+        function deleta(indice) {
+        let confirma = window.confirm('Depois de excluido não tem mais como restaura! Irei excluir. Posso excluir?');
+
+        if(confirma) {
+            arrayLista.splice(indice, 1); // Remove 1 item no índice escolhido
+            localStorage.setItem('chaveSalvar', JSON.stringify(arrayLista)); // Atualiza o localStorage
+            window.location.reload(); // Recarrega a página para atualizar a lista
+        }
+        }
     </script>
+
+    <div style="text-align: center;">
+        <button onclick="window.location.href = 'index1.html'" >Voltar</button>
+    </div>
+
 </body>
 </html>
